@@ -1,0 +1,3 @@
+target 'RtmpPush' do
+	pod 'LFLiveKit'
+end
