@@ -23,7 +23,7 @@
 
 - (IBAction)act:(UIButton *)sender {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSURL *url = [NSURL URLWithString:@"https://video.ubtrobot.com/jimu/post/180616131624932685.mp4"];
+        NSURL *url = [NSURL URLWithString:mp3Url];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         NSCachedURLResponse *response =  [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
         if (response) {
@@ -34,7 +34,7 @@
                 NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:url.lastPathComponent];
                 if (![NSFileManager.defaultManager fileExistsAtPath:path]) {
                     BOOL ret = [response.data writeToFile:path atomically:NO];
-                    if (ret) {
+                    if (!ret) {
                         NSLog(@"视频保存失败！");
                         return;
                     }

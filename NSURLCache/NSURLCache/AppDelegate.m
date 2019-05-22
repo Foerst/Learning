@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+
+
 @interface AppDelegate () <NSURLSessionDelegate, NSURLSessionDataDelegate>
 
 @end
@@ -20,12 +22,12 @@
     NSLog(@"doc === %@", doc);
     
     // declare a shared NSURLCache with 2mb of memory and 100mb of disk space
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:2 * 1024 * 1024  diskCapacity:100 * 1024 * 1024  diskPath:nil];
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:20 * 1024 * 1024  diskCapacity:100 * 1024 * 1024  diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
     
     
     // 1.创建请求
-    NSURL *url = [NSURL URLWithString:@"https://video.ubtrobot.com/jimu/post/180616131624932685.mp4"];
+    NSURL *url = [NSURL URLWithString:mp3Url];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     _request = request;
     // 2.设置缓存策略(有缓存就用缓存，没有缓存就重新请求)
@@ -40,6 +42,8 @@
 //            NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
             NSLog(@"data.length === %lu", data.length);
+            NSCachedURLResponse *cachedResponse = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
+            [NSURLCache.sharedURLCache storeCachedResponse:cachedResponse forRequest:request];
             
         }
     }];
