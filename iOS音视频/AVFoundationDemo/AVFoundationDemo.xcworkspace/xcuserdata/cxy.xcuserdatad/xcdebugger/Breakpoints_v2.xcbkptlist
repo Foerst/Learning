@@ -25,13 +25,13 @@
                   symbolName = "-[DVAssetLoaderDelegate URLSession:dataTask:didReceiveResponse:completionHandler:]"
                   moduleName = "AVFoundationDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cxy/Documents/GitHub/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
-                  timestampString = "572189306.216814"
+                  urlString = "file:///Users/cxy/Documents/GitHub/fumme/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
+                  timestampString = "580810674.2845"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "174"
                   endingLineNumber = "174"
-                  offsetFromSymbolStart = "243">
+                  offsetFromSymbolStart = "212">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,13 +40,13 @@
                   symbolName = "-[DVAssetLoaderDelegate URLSession:dataTask:didReceiveResponse:completionHandler:]"
                   moduleName = "AVFoundationDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cxy/Documents/GitHub/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
-                  timestampString = "572189306.218794"
+                  urlString = "file:///Users/cxy/Documents/GitHub/fumme/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
+                  timestampString = "580810674.28721"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "174"
                   endingLineNumber = "174"
-                  offsetFromSymbolStart = "279">
+                  offsetFromSymbolStart = "272">
                </Location>
             </Locations>
          </BreakpointContent>

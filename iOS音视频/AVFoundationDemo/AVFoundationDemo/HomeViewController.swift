@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
 
     @IBAction func aVPlayerCacheSupport(_ sender: UIButton) {
         do {
-            let path = "http://localhost:3000/video?name=123"
+            let path = "http://10.10.62.193:3000/video?name=123"
             let url = URL(string: path)!
             let item = try AVPlayerItem.mc_playerItem(withRemoteURL: url)
             let player = AVPlayer(playerItem: item)
