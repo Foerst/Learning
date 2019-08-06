@@ -9,21 +9,28 @@
 import UIKit
 import ImageIO
 
-class ViewController: UIViewController, URLSessionDelegate, URLSessionDownloadDelegate, URLSessionDataDelegate {
-    @IBOutlet weak var imageView: UIImageView!
-    var session = URLSession()
-    var recData = Data()
-    var incrementallyImgSource: CGImageSource?
+class ViewController: UIViewController {
     
-    var totalBytesExpectedToSend = 0
+    @IBOutlet weak var imageView: UIImageView!
+    
+    private lazy var session: URLSession = {
+        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+        return session
+    }()
+    
+    private lazy var recvData = Data()
+    
+    private lazy var incrementallyImgSource = CGImageSourceCreateIncremental(nil)
+    
+    private(set) var isFinished = false
+    
+    private let downloadUrl = URL(string: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498568143537&di=7261f6778aa9adad47f815dec7ca04c0&imgtype=0&src=http%3A%2F%2Fd.lanrentuku.com%2Fdown%2Fpng%2F1212%2Fchristmas_icon_set_by_mkho%2Fcandles.png")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        incrementallyImgSource = CGImageSourceCreateIncremental(nil)
-        let config = URLSessionConfiguration.default
-        session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
-//        session.downloadTask(with: URL(string: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498568143537&di=7261f6778aa9adad47f815dec7ca04c0&imgtype=0&src=http%3A%2F%2Fd.lanrentuku.com%2Fdown%2Fpng%2F1212%2Fchristmas_icon_set_by_mkho%2Fcandles.png")!).resume()
-        session.dataTask(with: URL(string: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498568143537&di=7261f6778aa9adad47f815dec7ca04c0&imgtype=0&src=http%3A%2F%2Fd.lanrentuku.com%2Fdown%2Fpng%2F1212%2Fchristmas_icon_set_by_mkho%2Fcandles.png")!).resume()
+        
+        session.downloadTask(with: downloadUrl).resume()
+//        session.dataTask(with: downloadUrl).resume()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +38,26 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionDownloadDe
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+        
+    }
+
+}
+
+
+extension ViewController: URLSessionDelegate {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        if let err = error {
+            print(err)
+        }
+    }
+}
+
+
+extension ViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        isFinished = true
         do {
             let data = try Data(contentsOf: location)
             let image = UIImage(data: data)
@@ -45,35 +71,20 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionDownloadDe
         
     }
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
-        
-    }
-    
-    
+}
+
+
+extension ViewController: URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
         completionHandler(.allow)
     }
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        
-        if let err = error {
-            print(err)
-        }
-    }
-    
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        recData.append(data)
-        var isEnd = false
-        if recData.count == totalBytesExpectedToSend {
-            isEnd = true
-        }
-        CGImageSourceUpdateData(incrementallyImgSource!, recData as CFData, isEnd)
-        let imageRef = CGImageSourceCreateImageAtIndex(incrementallyImgSource!, 0, nil)
+        recvData.append(data)
+        CGImageSourceUpdateData(incrementallyImgSource, recvData as CFData, isFinished)
+        let imageRef = CGImageSourceCreateImageAtIndex(incrementallyImgSource, 0, nil)
         if let cgImage = imageRef {
             imageView.image = UIImage(cgImage: cgImage)
         }
     }
-
-
 }
-
