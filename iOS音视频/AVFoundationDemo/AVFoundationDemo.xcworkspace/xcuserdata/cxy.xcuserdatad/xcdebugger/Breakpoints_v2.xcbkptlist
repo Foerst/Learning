@@ -25,13 +25,13 @@
                   symbolName = "-[DVAssetLoaderDelegate URLSession:dataTask:didReceiveResponse:completionHandler:]"
                   moduleName = "AVFoundationDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cxy/Documents/GitHub/fumme/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
-                  timestampString = "580810674.2845"
+                  urlString = "file:///Users/cxy/Documents/GitHub/foerst/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
+                  timestampString = "586948344.709298"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "174"
                   endingLineNumber = "174"
-                  offsetFromSymbolStart = "212">
+                  offsetFromSymbolStart = "233">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -40,8 +40,8 @@
                   symbolName = "-[DVAssetLoaderDelegate URLSession:dataTask:didReceiveResponse:completionHandler:]"
                   moduleName = "AVFoundationDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cxy/Documents/GitHub/fumme/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
-                  timestampString = "580810674.28721"
+                  urlString = "file:///Users/cxy/Documents/GitHub/foerst/Learning/iOS%E9%9F%B3%E8%A7%86%E9%A2%91/AVFoundationDemo/AVFoundationDemo/Third/DVAssetLoaderDelegate/Classes/DVAssetLoaderDelegate.m"
+                  timestampString = "586948344.71271"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "174"
@@ -176,6 +176,22 @@
             startingLineNumber = "209"
             endingLineNumber = "209"
             landmarkName = "-addRange:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AVFoundationDemo/HomeViewController.swift"
+            timestampString = "586948348.6407501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "custom(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

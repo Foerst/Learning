@@ -11,10 +11,7 @@ import AVFoundation
 
 class XYAssetLoader: NSObject {
     
-    private lazy var session: URLSession = {
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
-        return session
-    }()
+    private lazy var session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
     
     private lazy var dataTasks = [URLSessionDataTask]()
     
@@ -96,7 +93,9 @@ extension XYAssetLoader: AVAssetResourceLoaderDelegate {
             do {
                 
                 var request = try URLRequest(url: (urlComponents?.url)!, method: .get, headers: allHTTPHeaderFields)
+                
                 request.cachePolicy = .returnCacheDataElseLoad
+                
                 let dataTask = session.dataTask(with: request) { (data, response, error) in
                     guard error == nil else {
                         return
