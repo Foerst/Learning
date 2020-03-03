@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func setupUI() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -21,6 +24,7 @@ class ViewController: UIViewController {
             make.edges.equalToSuperview()
             // important
             make.width.equalToSuperview()
+            // make.width.equalTo(view)
         }
         
         contentHolder.addSubview(redView)
@@ -48,34 +52,6 @@ class ViewController: UIViewController {
             make.bottom.equalTo(blueView).offset(10)
         }
     }
-    
-    // MARK: UI
-    
-    private var contentHolder: UIView = UIView()
-    
-    private lazy var redView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
-    private lazy var greenView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
-    }()
-    
-    private lazy var blueView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
-    private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.backgroundColor = .black
-        return scroll
-    }()
 
 }
 

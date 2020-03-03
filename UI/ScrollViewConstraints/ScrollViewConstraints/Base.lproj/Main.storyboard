@@ -8,21 +8,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--SnapKit约束-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScrollViewConstraints" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="ScrollViewConstraints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1IV-dq-amy"/>
+                    <navigationItem key="navigationItem" title="SnapKit约束" id="1IV-dq-amy">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="Ffq-li-t4a"/>
+                        <barButtonItem key="rightBarButtonItem" title="Layout约束" id="i4W-CB-N8s">
+                            <connections>
+                                <segue destination="2CZ-ab-k63" kind="show" id="HUM-Hi-Fnk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="135.9375"/>
+        </scene>
+        <!--NSLayoutConstraint-->
+        <scene sceneID="jus-ZO-FeN">
+            <objects>
+                <viewController id="2CZ-ab-k63" customClass="ThirdViewController" customModule="ScrollViewConstraints" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ety-gp-DIn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KCA-I0-hgN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NSLayoutConstraint" id="DI5-oN-KcV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s19-l8-Xzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1807" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xJE-vQ-uuE">
